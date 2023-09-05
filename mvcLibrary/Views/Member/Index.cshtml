@@ -1,0 +1,56 @@
+﻿@using mvcLibrary.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<TblMembers>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<h2>Members</h2>
+
+@*@using (Html.BeginForm("Search", "Member", FormMethod.Get))
+    {
+        <div style="margin-top:15px;margin-bottom:15px;">
+            <b>Search Members:</b> @Html.TextBox("Search")
+            <input type="submit" value="Search" />
+        </div>
+    }*@
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Last Name</th>
+        <th>Mail</th>
+        <th>User Name</th>
+        <th>Password</th>
+        <th>Photo</th>
+        <th>Phone Number</th>
+        <th>University</th>
+        <th>Update</th>
+        <th>Remove</th>
+    </tr>
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>@m.ID</td>
+            <td>@m.Name</td>
+            <td>@m.LastName</td>
+            <td>@m.Mail</td>
+            <td>@m.UserName</td>
+            <td>@m.Password</td>
+            <td>@m.Photo</td>
+            <td>@m.PhoneNumber</td>
+            <td>@m.University</td>
+            <td><a href="/Member/GetMember/@m.ID" class="btn btn-secondary">Update</a></td>
+            <td>@Html.ActionLink("Remove", "RemoveMember", new { id = m.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Do you want to remove?')" })</td>
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions { LiElementClasses = new List<string> { "page-link" } })
+<a class="btn btn-primary" href="/Member/AddNewMember/">Add New Member</a>
+
+

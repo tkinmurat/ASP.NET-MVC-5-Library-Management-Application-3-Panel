@@ -1,0 +1,42 @@
+﻿@model mvcLibrary.Models.Entity.TblMembers
+@{
+    ViewBag.Title = "GetMember";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<h2>GetMember</h2>
+
+@using (Html.BeginForm("UpdateMember", "Member", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+
+        @Html.LabelFor(emp => emp.ID)
+        @Html.TextBoxFor(emp => emp.ID, new { @class = "form-control" })
+        <br>
+        @Html.LabelFor(emp => emp.Name)
+        @Html.TextBoxFor(emp => emp.Name, new { @class = "form-control" })
+        <br>
+        @Html.LabelFor(emp => emp.LastName)
+        @Html.TextBoxFor(emp => emp.LastName, new { @class = "form-control" })
+        <br>
+        @Html.LabelFor(emp => emp.Mail)
+        @Html.TextBoxFor(emp => emp.Mail, new { @class = "form-control" })
+        <br>
+        @Html.LabelFor(emp => emp.UserName)
+        @Html.TextBoxFor(emp => emp.UserName, new { @class = "form-control" })
+        <br>
+        @Html.LabelFor(emp => emp.Password)
+        @Html.TextBoxFor(emp => emp.Password, new { @class = "form-control" })
+        <br>
+        @Html.LabelFor(emp => emp.Photo)
+        @Html.TextBoxFor(emp => emp.Photo, new { @class = "form-control" })
+        <br>
+        @Html.LabelFor(emp => emp.University)
+        @Html.TextBoxFor(emp => emp.University, new { @class = "form-control" })
+        <br>
+        <div><button class="btn btn-warning">Update</button></div>
+    </div>
+}
+

@@ -1,0 +1,40 @@
+﻿@using mvcLibrary.Models.Entity
+@model List<TblProcess>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<h2>Borrowed Book List</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Process ID</th>
+        <th>Book Name</th>
+        <th>Member</th>
+        <th>Employee</th>
+        <th>Borrow Date</th>
+        <th>Due Date</th>
+        <th>Return</th>
+    </tr>
+    @foreach (var b in Model)
+    {
+
+        <tr>
+            <td>@b.ID</td>
+            <td>@b.TblBook.Name</td>
+            <td>@b.TblMembers.Name&nbsp;@b.TblMembers.LastName</td>
+            <td>@b.TblEmployee.Employee</td>
+            <td>@Convert.ToDateTime(b.BorrowDate).ToString("dd/MM/yyyy")</td>
+            <td>@Convert.ToDateTime(b.DueDate).ToString("dd/MM/yyyy")</td>
+
+            <td><a href="/Borrow/BorrowReturn/@b.ID" class="btn btn-default" style="background-color:#ff6a00">Return</a></td>
+
+
+        </tr>
+
+    }
+
+</table>
+
+

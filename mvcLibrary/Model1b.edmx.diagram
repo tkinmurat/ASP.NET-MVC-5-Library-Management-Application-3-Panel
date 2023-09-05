@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b6f6b8bc17244fbf9324925015431790" Name="Diagram1">
+        <EntityTypeShape EntityType="DBLIBRARYModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TblBan" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TblBook" Width="1.5" PointX="3.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TblCashRegister" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TblCategory" Width="1.5" PointX="1.5" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TblMembers" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TblProcess" Width="1.5" PointX="6" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TblWriter" Width="1.5" PointX="1.5" PointY="10.375" IsExpanded="true" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TblBan_TblMembers" ManuallyRouted="false" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TblBan_TblProcess" ManuallyRouted="false" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TblBook_TblCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TblBook_TblWriter" ManuallyRouted="false" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TblProcess_TblBook" ManuallyRouted="false" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TblProcess_TblMembers" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

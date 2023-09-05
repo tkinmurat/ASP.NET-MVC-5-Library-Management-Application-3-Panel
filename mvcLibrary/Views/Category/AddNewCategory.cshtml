@@ -1,0 +1,21 @@
+﻿@model mvcLibrary.Models.Entity.TblCategory
+@{
+    ViewBag.Title = "AddNewCategory";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        <label>
+            Category Name
+        </label>
+        <input type="text" class="form-control" name="Name" />
+    </div>
+
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="Btn1">Add Category</button>
+    </div>
+</form>
+

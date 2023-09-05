@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="15b86d2e868a4f9a9267a34d3f3c0c5e" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="DBLIBRARYModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="8.375" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TblAbout" Width="1.5" PointX="0.75" PointY="1.375" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TblBan" Width="1.5" PointX="3" PointY="3.75" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TblBook" Width="1.5" PointX="3.75" PointY="8.625" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TblCashRegister" Width="1.5" PointX="7.75" PointY="8.375" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TblCategory" Width="1.5" PointX="1.5" PointY="10.875" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TblContact" Width="1.5" PointX="8.75" PointY="1.375" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TblEmployee" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TblMembers" Width="1.5" PointX="0.75" PointY="3.5" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TblProcess" Width="1.5" PointX="6" PointY="3.375" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TblWriter" Width="1.5" PointX="1.5" PointY="8.125" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TblBan_TblMembers1" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TblBan_TblProcess" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TblBook_TblCategory" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TblBook_TblWriter" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TblProcess_TblBook" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TblProcess_TblEmployee" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TblProcess_TblMembers1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

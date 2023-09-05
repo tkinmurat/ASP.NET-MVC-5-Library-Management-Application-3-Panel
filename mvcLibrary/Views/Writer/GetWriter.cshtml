@@ -1,0 +1,29 @@
+﻿@model mvcLibrary.Models.Entity.TblWriter
+@{
+    ViewBag.Title = "GetWriter";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+@using (Html.BeginForm("UpdateWriter", "Writer", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+
+        @Html.LabelFor(w => w.ID)
+        @Html.TextBoxFor(w => w.ID, new { @class = "form-control" })
+        <br>
+        @Html.LabelFor(w => w.Name)
+        @Html.TextBoxFor(w => w.Name, new { @class = "form-control" })
+        <br>
+        @Html.LabelFor(w => w.LastName)
+        @Html.TextBoxFor(w => w.LastName, new { @class = "form-control" })
+        <br>
+        @Html.LabelFor(w => w.Detail)
+        @Html.TextBoxFor(w => w.Detail, new { @class = "form-control" })
+        <br>
+        <div><button class="btn btn-warning">Update</button></div>
+    </div>
+}

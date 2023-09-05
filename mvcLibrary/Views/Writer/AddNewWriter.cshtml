@@ -1,0 +1,35 @@
+﻿@model mvcLibrary.Models.Entity.TblWriter
+
+@{
+    ViewBag.Title = "AddNewWriter";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<form class="form-group" method="post">
+    <div>
+
+
+    </div>
+    <div style="margin-top:15px">
+        <label>Writer's Name</label>
+        @Html.TextBoxFor(w => w.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(w => w.Name)
+    </div>
+    <div style="margin-top:15px">
+        <label>Writer's Last Name</label>
+        @Html.TextBoxFor(w => w.LastName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(w => w.LastName)
+    </div>
+    <div style="margin-top:15px">
+        <label>Writer's Detail</label>
+        @Html.TextBoxFor(w => w.Detail, new { @class = "form-control" })
+
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-warning">Add New Writer</button>
+
+    </div>
+</form>

@@ -1,0 +1,51 @@
+﻿@model mvcLibrary.Models.Entity.TblProcess
+@{
+    ViewBag.Title = "BorrowReturn";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+@using (Html.BeginForm("UpdateBorrow", "Borrow", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+
+        <label>Process ID</label>
+        @Html.TextBoxFor(brrw => brrw.ID, new { @class = "form-control" })
+        <br>
+        <label>Book Name</label>
+        @Html.TextBoxFor(brrw => brrw.TblBook.Name, new { @class = "form-control" })
+        <br>
+        <label>Member</label>
+        @Html.TextBoxFor(brrw => brrw.TblMembers.Name, new { @class = "form-control" })
+        <br>
+        <label>Employee</label>
+        @Html.TextBoxFor(brrw => brrw.TblEmployee.Employee, new { @class = "form-control" })
+        <br>
+        <label>Borrow Date</label>
+        @Html.TextBoxFor(brrw => brrw.BorrowDate, "{0: dd.MM.yyyy}", new { @class = "form-control" })
+        <br>
+        <label>Due Date</label>
+        @Html.TextBoxFor(brrw => brrw.DueDate, "{0: dd.MM.yyyy}", new { @class = "form-control" })
+        <br>
+        <label>Returned Date</label>
+        <input type="text" name="ReturnedDate" class="form-control"
+               value="@DateTime.Now.ToShortDateString()" />
+        <br>
+
+        @*<label>Book Situation</label>
+            @Html.TextBoxFor(brrw => brrw.ProcessSituation, new { @class = "form-control" })
+
+            <br>*@
+        <label>Number of Days Due Late</label>
+        <input type="text" class="form-control" id="LateDue" value="@ViewBag.val" />
+        <br>
+    </div>
+    <div>
+        <button class="btn btn-warning">Book Received From Member</button>
+    </div>
+
+}
+

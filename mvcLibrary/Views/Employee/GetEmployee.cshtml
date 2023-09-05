@@ -1,0 +1,24 @@
+﻿@model mvcLibrary.Models.Entity.TblEmployee
+@{
+    ViewBag.Title = "GetEmployee";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+@using (Html.BeginForm("UpdateEmployee", "Employee", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+
+        @Html.LabelFor(emp => emp.ID)
+        @Html.TextBoxFor(emp => emp.ID, new { @class = "form-control" })
+        <br>
+        @Html.LabelFor(emp => emp.Employee)
+        @Html.TextBoxFor(emp => emp.Employee, new { @class = "form-control" })
+        <br>
+        <div><button class="btn btn-warning">Update</button></div>
+    </div>
+}
+

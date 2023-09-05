@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBLIBRARYModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DBLIBRARYEntitiesa" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="DBLIBRARYModel.sysdiagrams" />
+    <EntitySet Name="TblAbout" EntityType="DBLIBRARYModel.TblAbout" />
+    <EntitySet Name="TblBan" EntityType="DBLIBRARYModel.TblBan" />
+    <EntitySet Name="TblBook" EntityType="DBLIBRARYModel.TblBook" />
+    <EntitySet Name="TblCashRegister" EntityType="DBLIBRARYModel.TblCashRegister" />
+    <EntitySet Name="TblCategory" EntityType="DBLIBRARYModel.TblCategory" />
+    <EntitySet Name="TblContact" EntityType="DBLIBRARYModel.TblContact" />
+    <EntitySet Name="TblEmployee" EntityType="DBLIBRARYModel.TblEmployee" />
+    <EntitySet Name="TblMembers" EntityType="DBLIBRARYModel.TblMembers" />
+    <EntitySet Name="TblProcess" EntityType="DBLIBRARYModel.TblProcess" />
+    <EntitySet Name="TblWriter" EntityType="DBLIBRARYModel.TblWriter" />
+    <AssociationSet Name="FK_TblBan_TblMembers1" Association="DBLIBRARYModel.FK_TblBan_TblMembers1">
+      <End Role="TblMembers" EntitySet="TblMembers" />
+      <End Role="TblBan" EntitySet="TblBan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblBan_TblProcess" Association="DBLIBRARYModel.FK_TblBan_TblProcess">
+      <End Role="TblProcess" EntitySet="TblProcess" />
+      <End Role="TblBan" EntitySet="TblBan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblBook_TblCategory" Association="DBLIBRARYModel.FK_TblBook_TblCategory">
+      <End Role="TblCategory" EntitySet="TblCategory" />
+      <End Role="TblBook" EntitySet="TblBook" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblBook_TblWriter" Association="DBLIBRARYModel.FK_TblBook_TblWriter">
+      <End Role="TblWriter" EntitySet="TblWriter" />
+      <End Role="TblBook" EntitySet="TblBook" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblProcess_TblBook" Association="DBLIBRARYModel.FK_TblProcess_TblBook">
+      <End Role="TblBook" EntitySet="TblBook" />
+      <End Role="TblProcess" EntitySet="TblProcess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblProcess_TblEmployee" Association="DBLIBRARYModel.FK_TblProcess_TblEmployee">
+      <End Role="TblEmployee" EntitySet="TblEmployee" />
+      <End Role="TblProcess" EntitySet="TblProcess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblProcess_TblMembers1" Association="DBLIBRARYModel.FK_TblProcess_TblMembers1">
+      <End Role="TblMembers" EntitySet="TblMembers" />
+      <End Role="TblProcess" EntitySet="TblProcess" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TblAbout">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="About" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TblBan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Member" Type="Int32" />
+    <Property Name="Process" Type="Int32" />
+    <Property Name="BanDate" Type="DateTime" Precision="0" />
+    <Property Name="BanEndTime" Type="DateTime" Precision="0" />
+    <Property Name="Fine" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="TblMembers" Relationship="DBLIBRARYModel.FK_TblBan_TblMembers1" FromRole="TblBan" ToRole="TblMembers" />
+    <NavigationProperty Name="TblProcess" Relationship="DBLIBRARYModel.FK_TblBan_TblProcess" FromRole="TblBan" ToRole="TblProcess" />
+  </EntityType>
+  <EntityType Name="TblBook">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="Int32" />
+    <Property Name="Writer" Type="Int32" />
+    <Property Name="ReleaseYear" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="Publisher" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Page" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Situation" Type="Boolean" />
+    <Property Name="Photo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TblCategory" Relationship="DBLIBRARYModel.FK_TblBook_TblCategory" FromRole="TblBook" ToRole="TblCategory" />
+    <NavigationProperty Name="TblWriter" Relationship="DBLIBRARYModel.FK_TblBook_TblWriter" FromRole="TblBook" ToRole="TblWriter" />
+    <NavigationProperty Name="TblProcess" Relationship="DBLIBRARYModel.FK_TblProcess_TblBook" FromRole="TblBook" ToRole="TblProcess" />
+  </EntityType>
+  <EntityType Name="TblCashRegister">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Month" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Total" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="TblCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TblBook" Relationship="DBLIBRARYModel.FK_TblBook_TblCategory" FromRole="TblCategory" ToRole="TblBook" />
+  </EntityType>
+  <EntityType Name="TblContact">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Message" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TblEmployee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Employee" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TblProcess" Relationship="DBLIBRARYModel.FK_TblProcess_TblEmployee" FromRole="TblEmployee" ToRole="TblProcess" />
+  </EntityType>
+  <EntityType Name="TblMembers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Photo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="University" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TblBan" Relationship="DBLIBRARYModel.FK_TblBan_TblMembers1" FromRole="TblMembers" ToRole="TblBan" />
+    <NavigationProperty Name="TblProcess" Relationship="DBLIBRARYModel.FK_TblProcess_TblMembers1" FromRole="TblMembers" ToRole="TblProcess" />
+  </EntityType>
+  <EntityType Name="TblProcess">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Book" Type="Int32" />
+    <Property Name="Member" Type="Int32" />
+    <Property Name="Employee" Type="Int32" />
+    <Property Name="BorrowDate" Type="DateTime" Precision="0" />
+    <Property Name="DueDate" Type="DateTime" Precision="0" />
+    <Property Name="ReturnedDate" Type="DateTime" Precision="0" />
+    <Property Name="ProcessSituation" Type="Boolean" />
+    <NavigationProperty Name="TblBan" Relationship="DBLIBRARYModel.FK_TblBan_TblProcess" FromRole="TblProcess" ToRole="TblBan" />
+    <NavigationProperty Name="TblBook" Relationship="DBLIBRARYModel.FK_TblProcess_TblBook" FromRole="TblProcess" ToRole="TblBook" />
+    <NavigationProperty Name="TblEmployee" Relationship="DBLIBRARYModel.FK_TblProcess_TblEmployee" FromRole="TblProcess" ToRole="TblEmployee" />
+    <NavigationProperty Name="TblMembers" Relationship="DBLIBRARYModel.FK_TblProcess_TblMembers1" FromRole="TblProcess" ToRole="TblMembers" />
+  </EntityType>
+  <EntityType Name="TblWriter">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Detail" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TblBook" Relationship="DBLIBRARYModel.FK_TblBook_TblWriter" FromRole="TblWriter" ToRole="TblBook" />
+  </EntityType>
+  <Association Name="FK_TblBan_TblMembers1">
+    <End Type="DBLIBRARYModel.TblMembers" Role="TblMembers" Multiplicity="0..1" />
+    <End Type="DBLIBRARYModel.TblBan" Role="TblBan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblMembers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TblBan">
+        <PropertyRef Name="Member" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblBan_TblProcess">
+    <End Type="DBLIBRARYModel.TblProcess" Role="TblProcess" Multiplicity="0..1" />
+    <End Type="DBLIBRARYModel.TblBan" Role="TblBan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblProcess">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TblBan">
+        <PropertyRef Name="Process" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblBook_TblCategory">
+    <End Type="DBLIBRARYModel.TblCategory" Role="TblCategory" Multiplicity="0..1" />
+    <End Type="DBLIBRARYModel.TblBook" Role="TblBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TblBook">
+        <PropertyRef Name="Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblBook_TblWriter">
+    <End Type="DBLIBRARYModel.TblWriter" Role="TblWriter" Multiplicity="0..1" />
+    <End Type="DBLIBRARYModel.TblBook" Role="TblBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblWriter">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TblBook">
+        <PropertyRef Name="Writer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblProcess_TblBook">
+    <End Type="DBLIBRARYModel.TblBook" Role="TblBook" Multiplicity="0..1" />
+    <End Type="DBLIBRARYModel.TblProcess" Role="TblProcess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblBook">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TblProcess">
+        <PropertyRef Name="Book" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblProcess_TblEmployee">
+    <End Type="DBLIBRARYModel.TblEmployee" Role="TblEmployee" Multiplicity="0..1" />
+    <End Type="DBLIBRARYModel.TblProcess" Role="TblProcess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblEmployee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TblProcess">
+        <PropertyRef Name="Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblProcess_TblMembers1">
+    <End Type="DBLIBRARYModel.TblMembers" Role="TblMembers" Multiplicity="0..1" />
+    <End Type="DBLIBRARYModel.TblProcess" Role="TblProcess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblMembers">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TblProcess">
+        <PropertyRef Name="Member" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,40 @@
+﻿@model mvcLibrary.Models.Entity.TblBook
+@{
+    ViewBag.Title = "GetBook";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+@using (Html.BeginForm("UpdateBook", "Book", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+
+        @Html.LabelFor(b => b.ID)
+        @Html.TextBoxFor(b => b.ID, new { @class = "form-control" })
+        <br>
+        @Html.LabelFor(b => b.Name)
+        @Html.TextBoxFor(b => b.Name, new { @class = "form-control" })
+        <br>
+        @Html.LabelFor(b => b.Category)
+        @Html.DropDownListFor(k => k.TblCategory.ID, (List<SelectListItem>)ViewBag.cate1, new { @class = "form-control" })
+        <br>
+        @Html.LabelFor(b => b.Writer)
+        @Html.DropDownListFor(k => k.TblWriter.ID, (List<SelectListItem>)ViewBag.cate2, new { @class = "form-control" })
+        <br>
+        @Html.LabelFor(b => b.ReleaseYear)
+        @Html.TextBoxFor(b => b.ReleaseYear, new { @class = "form-control" })
+        <br>
+        @Html.LabelFor(b => b.Publisher)
+        @Html.TextBoxFor(b => b.Publisher, new { @class = "form-control" })
+        <br>
+        @Html.LabelFor(b => b.Page)
+        @Html.TextBoxFor(b => b.Page, new { @class = "form-control" })
+        <br>
+        
+
+        <div><button class="btn btn-warning">Update</button></div>
+        
+    </div>
+}

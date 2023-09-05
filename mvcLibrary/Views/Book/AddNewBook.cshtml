@@ -1,0 +1,51 @@
+﻿@model mvcLibrary.Models.Entity.TblBook
+
+@{
+    ViewBag.Title = "AddNewBook";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<h2>Add New Book</h2>
+<form class="form-group" method="post">
+    <div>
+
+
+    </div>
+    <div style="margin-top:15px">
+        <label>Book's Name</label>
+        @Html.TextBoxFor(b => b.Name, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Category</label>
+        @Html.DropDownListFor(k=>k.TblCategory.ID,(List<SelectListItem>)ViewBag.cate1, new { @class = "form-control" })
+
+    </div>
+    <div style="margin-top:15px">
+        <label>Writer</label>
+        @Html.DropDownListFor(k => k.TblWriter.ID, (List<SelectListItem>)ViewBag.cate2, new { @class = "form-control" })
+
+    </div>
+    <div style="margin-top:15px">
+        <label>Release Year</label>
+        @Html.TextBoxFor(b => b.ReleaseYear, new { @class = "form-control" })
+
+    </div>
+    <div style="margin-top:15px">
+        <label>Publisher</label>
+        @Html.TextBoxFor(b => b.Publisher, new { @class = "form-control" })
+
+    </div>
+    <div style="margin-top:15px">
+        <label>Page</label>
+        @Html.TextBoxFor(b => b.Page, new { @class = "form-control" })
+
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Add New Writer</button>
+
+    </div>
+    <input type="hidden" name="Situation" value="true"/>
+</form>
+
+
